@@ -37,13 +37,13 @@ const Projects: React.FC = () => {
                   <span className="text-xs font-medium px-3 py-1 bg-green-100 text-green-700 rounded-full flex-shrink-0">{project.status}</span>
                 </div>
                 
-                <p className="text-[var(--text-secondary)] mb-4 leading-relaxed text-sm">{project.description}</p>
+                <p className="text-gray-700 mb-4 leading-relaxed text-base">{project.description}</p>
                 
                 <div className="mb-4">
-                  <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-2">Key Features:</h4>
+                  <h4 className="text-base font-semibold text-[var(--text-primary)] mb-2">Key Features:</h4>
                   <ul className="space-y-1">
                     {project.features.map((feature) => (
-                      <li key={feature} className="flex items-center text-xs text-[var(--text-secondary)]">
+                     <li key={feature} className="flex items-center text-sm text-gray-700">
                         <i className="icofont-check text-green-500 text-sm mr-2"></i>{feature}
                       </li>
                     ))}
@@ -54,15 +54,15 @@ const Projects: React.FC = () => {
                   <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg">
                     <div className="flex items-center mb-2">
                       <i className="icofont-shield text-green-600 text-lg mr-2"></i>
-                      <span className="text-xs font-semibold text-green-800">Accessibility Compliant</span>
+                      <span className="text-sm font-semibold text-green-800">Accessibility Compliant</span>
                     </div>
-                    <p className="text-xs text-green-700 mb-2">{project.accessibility.wcag}</p>
+                    <p className="text-sm text-green-700 mb-2">{project.accessibility.wcag}</p>
                   </div>
                 )}
                 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag) => (
-                    <span key={tag} className="px-3 py-1 bg-[var(--primary-color)] bg-opacity-10 text-[var(--primary-color)] text-xs rounded-full font-medium">{tag}</span>
+                    <span key={tag} className="px-3 py-1 bg-[var(--primary-color)] bg-opacity-10 text-[var(--primary-color)] text-sm rounded-full font-medium">{tag}</span>
                   ))}
                 </div>
                 

@@ -1,3 +1,4 @@
+
 export const NAVIGATION_ITEMS = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
@@ -193,14 +194,14 @@ export const PROJECTS = [
     }
   },
   {
-    title: 'Inclusive Customer Service Bot',
-    description: 'Customer service chatbot designed with accessibility-first principles, supporting multiple languages, voice inputs, and providing clear, simple responses for users of all abilities.',
-    image: 'https://images.unsplash.com/photo-1553484771-cc0d9b8c2b33?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    tags: ['Chatbot', 'Accessibility', 'Customer Service', 'NLP'],
-    icon: 'speech-comments',
-    color: 'bg-purple-500',
-    demoUrl: 'https://github.com/PHINDILE1996/inclusive-service-bot',
-    features: ['Multi-language Support', 'Voice Interface', 'Simple Clear Responses'],
+    title: 'AI-Chatbot',
+    description: 'An intelligent, conversational AI chatbot designed to provide instant support and engage users in natural language conversations. Built using Voiceflow.',
+    image: 'https://png.pngtree.com/png-clipart/20230401/original/pngtree-smart-chatbot-cartoon-clipart-png-image_9015126.png',
+    tags: ['Chatbot', 'AI', 'Voiceflow', 'Customer Support'],
+    icon: 'chat',
+    color: 'bg-teal-500',
+    demoUrl: 'https://creator.voiceflow.com/prototype/6880cf0d02faed09e5e99b0a',
+    features: ['Natural Language Understanding', '24/7 Availability', 'Voiceflow Integration'],
     status: 'Live Demo Available'
   }
 ];
