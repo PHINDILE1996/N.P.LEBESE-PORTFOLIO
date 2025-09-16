@@ -4,7 +4,6 @@ export const NAVIGATION_ITEMS = [
   { id: 'experience', label: 'Experience' },
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
-  { id: 'repositories', label: 'Repositories' },
   { id: 'contact', label: 'Contact' }
 ];
 
@@ -20,7 +19,6 @@ export const QUICK_LINKS = [
   { label: 'Experience', href: '#experience' },
   { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Repositories', href: '#repositories' },
   { label: 'Contact', href: '#contact' }
 ];
 
@@ -181,7 +179,7 @@ export const PROJECTS = [
     tags: ['AI', 'Mental Health', 'Career Support', 'Accessibility'],
     icon: 'heart',
     color: 'bg-green-500',
-    demoUrl: 'https://phindile1996.github.io/Career-Mental-Health-Assistant/',
+    demoUrl: 'https://github.com/PHINDILE1996/Career-Mental-Health-Assistant.git',
     features: ['WCAG 2.1 Compliant Interface', 'Screen Reader Compatible', 'Voice Navigation Support', 'High Contrast Mode'],
     status: 'Live Project',
     accessibility: {

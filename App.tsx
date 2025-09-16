@@ -45,15 +45,6 @@ const App: React.FC = () => {
         <Experience />
         <Skills />
         <Projects />
-        
-        <Section id="repositories" title="GitHub Repositories" className="bg-[var(--background-light)] text-center">
-            <p className="text-lg mb-8 max-w-2xl mx-auto">Explore my code and projects on GitHub to see my skills in action.</p>
-            <a href="https://github.com/PHINDILE1996" target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center">
-                <i className="icofont-github text-xl mr-2"></i>
-                Visit My GitHub Profile
-            </a>
-        </Section>
-        
         <Contact />
       </main>
       <Footer />

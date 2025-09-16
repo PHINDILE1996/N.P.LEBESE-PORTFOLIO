@@ -30,7 +30,7 @@ const About: React.FC = () => {
         </div>
         
         <div className="grid lg:grid-cols-3 gap-16 items-center">
-          <div className="slide-in-left lg:col-span-2">
+          <div className="slide-in-left lg:col-span-3">
             <div className="space-y-6">
               <h3 className="text-2xl font-semibold text-[var(--text-primary)]">
                 Professional Summary
@@ -116,18 +116,6 @@ const About: React.FC = () => {
             </div>
           </div>
           
-          <div className="slide-in-right">
-            <div className="text-center">
-              <div className="relative inline-block">
-                <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-[var(--primary-color)] glow-effect">
-                  <img src="https://app.trickle.so/storage/public/images/usr_1523792d18000001/eed82644-8037-4677-baf4-44d2fe11b583.jpeg" alt="Norah Phindile Lebese" className="w-full h-full object-cover"/>
-                </div>
-                <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-green-500 rounded-full border-4 border-white flex items-center justify-center glow-effect">
-                  <i className="icofont-check text-white text-xl"></i>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
         
         <div className="mt-16 slide-in-up">

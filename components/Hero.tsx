@@ -97,8 +97,8 @@ const Hero: React.FC = () => {
           <div className="hidden lg:flex justify-center lg:justify-end">
             <div className="slide-in-right">
               <div className="relative">
-                <div className="w-80 h-80 rounded-full bg-gradient-to-br from-[var(--primary-color)] to-[var(--secondary-color)] p-1 glow-effect">
-                  <div className="w-full h-full rounded-full overflow-hidden bg-white">
+                <div className="w-[400px] h-[400px] rounded-3xl bg-gradient-to-br from-[var(--primary-color)] to-[var(--secondary-color)] p-1 glow-effect">
+                  <div className="w-full h-full rounded-3xl overflow-hidden bg-white">
                     <img 
                       src="https://app.trickle.so/storage/public/images/usr_1523792d18000001/eed82644-8037-4677-baf4-44d2fe11b583.jpeg"
                       alt="Norah Phindile Lebese"
