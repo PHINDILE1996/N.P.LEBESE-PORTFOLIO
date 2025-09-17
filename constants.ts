@@ -179,7 +179,8 @@ export const PROJECTS = [
     tags: ['AI', 'Mental Health', 'Career Support', 'Accessibility'],
     icon: 'heart',
     color: 'bg-green-500',
-    demoUrl: 'https://career-and-mental-health-assistant.vercel.app/',
+    demoUrl: 'https://career-and-mental-health-assistant.vercel.app',
+    sourceUrl: 'https://github.com/PHINDILE1996/career-and-mental-health-assistant',
     features: ['WCAG 2.1 Compliant Interface', 'Screen Reader Compatible', 'Voice Navigation Support', 'High Contrast Mode'],
     status: 'Live Project',
     accessibility: {

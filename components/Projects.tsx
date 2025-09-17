@@ -20,7 +20,7 @@ const Projects: React.FC = () => {
         </div>
         
         <div className="grid lg:grid-cols-3 gap-8">
-          {PROJECTS.map((project, index) => (
+          {PROJECTS.map((project: any, index) => (
             <div key={index} className="card-glow overflow-hidden fade-in hover:scale-105 transition-transform duration-300" style={{ animationDelay: `${index * 0.2}s` }}>
               <div className="relative h-48 overflow-hidden group">
                 <img src={project.image} alt={project.title} className="w-full h-full object-cover"/>
@@ -42,7 +42,7 @@ const Projects: React.FC = () => {
                 <div className="mb-4">
                   <h4 className="text-base font-semibold text-[var(--text-primary)] mb-2">Key Features:</h4>
                   <ul className="space-y-1">
-                    {project.features.map((feature) => (
+                    {project.features.map((feature: string) => (
                      <li key={feature} className="flex items-center text-sm text-gray-700">
                         <i className="icofont-check text-green-500 text-sm mr-2"></i>{feature}
                       </li>
@@ -61,14 +61,27 @@ const Projects: React.FC = () => {
                 )}
                 
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag) => (
+                  {project.tags.map((tag: string) => (
                     <span key={tag} className="px-3 py-1 bg-[var(--primary-color)] bg-opacity-10 text-[var(--primary-color)] text-sm rounded-full font-medium">{tag}</span>
                   ))}
                 </div>
                 
-                <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" aria-label={`View project: ${project.title}`} className="btn-primary w-full text-sm">
-                  <i className="icofont-external-link text-lg mr-2"></i>View Project
-                </a>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" aria-label={`View project: ${project.title}`} className="btn-primary w-full text-sm flex-1">
+                    <i className="icofont-external-link text-lg mr-2"></i>View Project
+                  </a>
+                  {project.sourceUrl && (
+                    <a 
+                      href={project.sourceUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      aria-label={`View source code for: ${project.title}`} 
+                      className="flex-1 px-6 py-3 border-2 border-gray-300 text-[var(--text-secondary)] rounded-lg font-medium transition-all duration-300 hover:border-[var(--primary-color)] hover:text-[var(--primary-color)] flex items-center justify-center text-sm w-full"
+                    >
+                      <i className="icofont-github text-lg mr-2"></i>View Source
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}
