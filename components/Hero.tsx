@@ -1,7 +1,186 @@
 
 import React from 'react';
 
+// Add this declaration for TypeScript to recognize jspdf on the window object
+declare global {
+  interface Window {
+    jspdf: any;
+  }
+}
+
 const Hero: React.FC = () => {
+
+  const handleDownloadCv = () => {
+    const cvText = `
+Norah Phindile Lebese
+
+== CONTACT INFORMATION ==
+Email: lebesephindile46@gmail.com
+Phone: 0631337955 / 0649031568
+Address: 12272 Leeba Street, Ext 14 Tongaat, Vosloorus
+LinkedIn: linkedin.com/in/norah-phindile-lebese-4793b0379/
+
+== PROFESSIONAL SUMMARY ==
+Motivated and detail-oriented professional with experience in retail, marketing, and emerging technologies such as AI, chatbot development, and data science. Skilled in customer service, sales, project execution, and problem-solving. Passionate about leveraging technology to create impactful solutions.
+
+== PROFESSIONAL EXPERIENCE ==
+
+CAPACITI – Tech Career Accelerator | ADS Intern | 2025
+- Completed intensive training in Data Science, AI, and related technologies.
+- Developed projects applying machine learning, chatbot development, and data analytics.
+- Collaborated with peers on portfolio-building and career development projects.
+- Enhanced problem-solving and technical skills through capstone projects.
+
+AGM Marketing | Marketing Assistant | Jan 2021 – Jul 2022
+- Conducted telemarketing and direct marketing campaigns.
+- Handled outbound sales calls, lead generation, and customer satisfaction surveys.
+- Explained products, prices, and secured customer information.
+- Maintained accurate customer contact records.
+
+Checkers Hyper | Floor Assistant | Jan 2019 – Jul 2019
+- Assisted customers with directions, product locations, and promotions.
+- Supported sales through upselling and cross-selling techniques.
+- Replenished inventory and maintained store presentation.
+- Multi-tasked effectively, balancing responsibilities with customer satisfaction.
+
+Woolworths | Till Operator | Nov 2015 – Apr 2018
+- Delivered exceptional customer service ensuring positive shopping experiences.
+- Maintained strong product knowledge to assist and recommend to customers.
+- Processed transactions accurately and efficiently.
+- Supported sales growth by meeting and exceeding targets.
+- Contributed to store organization, merchandising, and team collaboration.
+
+== EDUCATION & CERTIFICATIONS ==
+
+Formal Education:
+- Diploma in Information Technology (NQF6) – Richfield, 2024
+- Project Management (NQF5) – ApexU, 2024
+- Business Administration (NQF4) – Richfield, 2020
+
+Professional Certifications:
+- AI For Everyone
+- Introduction to Artificial Intelligence (AI)
+- Introduction to Generative AI
+- AI Essentials
+- Python for Data Science, AI & Development
+- Building AI Powered Chatbots Without Programming
+- Generative AI with Large Language Models
+- Introduction to Responsible AI
+- Trustworthy AI: Managing Bias, Ethics, and Accountability
+- Artificial Intelligence on Microsoft Azure
+- AI Foundations: Prompt Engineering with ChatGPT
+
+== SKILLS ==
+
+Technical Skills:
+- AI & Machine Learning
+- Generative AI
+- Data Science
+- Python
+- Chatbot Development
+- Voiceflow, Framer, Cohere
+
+Business Skills:
+- Customer Service
+- Sales
+- Telemarketing
+- Lead Generation
+- Project Management
+
+Soft Skills:
+- Problem-Solving
+- Communication
+- Teamwork
+- Adaptability
+- Decision-Making
+
+== PORTFOLIO & PROJECTS ==
+- LearnAI-WITH_PHINDI: AI educational chatbot for beginners
+- Accessible Education Prototype (Framer): Designed for kids with disabilities
+- API Documentation & Trade-Off Analysis: Technical writing and evaluation
+
+== OTHER EXPERIENCE & PROJECTS ==
+- Designed and developed AI educational chatbot prototypes using no-code tools (Voiceflow, Framer, Cohere)
+- Created conversational flows for AI learning chatbots targeting beginners
+- Designed accessible educational tools for kids with disabilities
+
+---
+Professional CV • Available for immediate employment opportunities
+    `.trim();
+
+    if (!window.jspdf) {
+      alert("PDF generation library is still loading. Please try again in a moment.");
+      return;
+    }
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    
+    const margin = 15;
+    const usableWidth = doc.internal.pageSize.getWidth() - (margin * 2);
+    const pageHeight = doc.internal.pageSize.getHeight();
+    let y = 20;
+
+    const checkAndAddPage = () => {
+      if (y > pageHeight - margin) {
+        doc.addPage();
+        y = 20; // Reset y for new page
+      }
+    };
+
+    const lines = cvText.split('\n');
+
+    lines.forEach(line => {
+      let size = 10;
+      let style = 'normal';
+      let indent = 0;
+      let lineHeight = 5;
+
+      if (line.trim() === '') {
+        y += lineHeight / 2; // Add a small space for empty lines
+        return;
+      }
+      
+      if (line.startsWith('Norah Phindile Lebese')) {
+        size = 20;
+        style = 'bold';
+        lineHeight = 10;
+      } else if (line.startsWith('== ')) {
+        size = 14;
+        style = 'bold';
+        line = line.replace(/==/g, '').trim();
+        lineHeight = 8;
+        y += 5; // Space before header
+      } else if (line.includes(' | ')) {
+        size = 11;
+        style = 'bold';
+        lineHeight = 6;
+      } else if (line.startsWith('- ')) {
+        line = '•' + line.substring(1); // Replace hyphen with a bullet
+        indent = 5;
+        lineHeight = 6;
+      } else if (line.startsWith('Professional CV')) {
+        style = 'italic';
+        size = 9;
+        lineHeight = 5;
+        y += 10;
+      }
+
+      doc.setFontSize(size);
+      doc.setFont('helvetica', style);
+
+      const splitLines = doc.splitTextToSize(line, usableWidth - indent);
+      
+      splitLines.forEach((splitLine: string) => {
+        checkAndAddPage();
+        doc.text(splitLine, margin + indent, y);
+        y += lineHeight;
+      });
+    });
+
+    doc.save('Norah_Phindile_Lebese_CV.pdf');
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center section-padding relative overflow-hidden"
              data-name="hero" data-file="components/Hero.js">
@@ -83,10 +262,18 @@ const Hero: React.FC = () => {
                 <i className="icofont-briefcase-1 text-lg mr-2 inline-block"></i>
                 View My Work
               </button>
+              <button
+                onClick={handleDownloadCv}
+                className="px-6 py-3 border-2 border-[var(--primary-color)] text-[var(--primary-color)] rounded-lg font-medium 
+                         transition-all duration-300 hover:bg-[var(--primary-color)] hover:text-white glow-effect flex items-center justify-center"
+              >
+                <i className="icofont-download text-lg mr-2 inline-block"></i>
+                Download CV
+              </button>
               <button 
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 className="px-6 py-3 border-2 border-[var(--primary-color)] text-[var(--primary-color)] rounded-lg font-medium 
-                         transition-all duration-300 hover:bg-[var(--primary-color)] hover:text-white glow-effect"
+                         transition-all duration-300 hover:bg-[var(--primary-color)] hover:text-white glow-effect flex items-center justify-center"
               >
                 <i className="icofont-email text-lg mr-2 inline-block"></i>
                 Get In Touch
