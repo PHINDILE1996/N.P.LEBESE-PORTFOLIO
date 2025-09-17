@@ -1,4 +1,3 @@
-
 export const NAVIGATION_ITEMS = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
@@ -180,7 +179,7 @@ export const PROJECTS = [
     tags: ['AI', 'Mental Health', 'Career Support', 'Accessibility'],
     icon: 'heart',
     color: 'bg-green-500',
-    demoUrl: 'https://github.com/PHINDILE1996/Career-Mental-Health-Assistant.git',
+    demoUrl: 'https://career-and-mental-health-assistant.vercel.app/',
     features: ['WCAG 2.1 Compliant Interface', 'Screen Reader Compatible', 'Voice Navigation Support', 'High Contrast Mode'],
     status: 'Live Project',
     accessibility: {
